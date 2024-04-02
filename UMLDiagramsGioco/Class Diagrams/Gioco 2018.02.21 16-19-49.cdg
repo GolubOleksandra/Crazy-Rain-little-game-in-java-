@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Gioco">
+  <ClassDiagramComponents>
+    <Class name="CaricatoreImmagini" package="gioco" visibility="public" xPosition="1284.0" yPosition="1016.0">
+      <Fields>
+        <Field name="image" type="BufferedImage" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="caricaImmagine" returnType="BufferedImage" visibility="public">
+          <Argument type="String" name="posizione"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Criccetto" package="gioco" visibility="public" xPosition="172.0" yPosition="146.0">
+      <Fields>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+        <Field name="larghezza" type="int" visibility="private"/>
+        <Field name="altezza" type="int" visibility="private"/>
+        <Field name="attivo" type="boolean" visibility="private"/>
+        <Field name="velocita" type="int" visibility="private"/>
+        <Field name="max_velocita" type="int" visibility="private" isFinal="true"/>
+        <Field name="main" type="Gioco" visibility="private"/>
+        <Field name="img_cricceto" type="BufferedImage" visibility="package"/>
+        <Field name="vita" type="int" visibility="public"/>
+        <Field name="record" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferedImage" name="image"/>
+          <Argument type="int" name="larghezza"/>
+          <Argument type="int" name="altezza"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="Gioco" name="main"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="aggiorna" returnType="void" visibility="public"/>
+        <Method name="getBordi" returnType="Rectangle" visibility="public"/>
+        <Method name="disegna" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="getAttivo" returnType="boolean" visibility="public"/>
+        <Method name="setAttivo" returnType="void" visibility="public">
+          <Argument type="boolean" name="valore"/>
+        </Method>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setLarghezza" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setAltezza" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="getLarghezza" returnType="int" visibility="public"/>
+        <Method name="getAltezza" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GestoreCollisioni" package="gioco" visibility="public" xPosition="677.0" yPosition="146.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ControllaCollisione" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Giocatore" name="ombrello"/>
+          <Argument type="Goccia" name="goccia"/>
+        </Method>
+        <Method name="ControllaCollisioneCriccetto" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Criccetto" name="criccetto"/>
+          <Argument type="Goccia" name="goccia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Giocatore" package="gioco" visibility="public" xPosition="183.0" yPosition="764.0">
+      <Fields>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+        <Field name="larghezza" type="int" visibility="private"/>
+        <Field name="altezza" type="int" visibility="private"/>
+        <Field name="velocita" type="int" visibility="private" isFinal="true"/>
+        <Field name="main" type="Gioco" visibility="package"/>
+        <Field name="img_ombrello" type="BufferedImage" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="BufferedImage" name="image"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="larghezza"/>
+          <Argument type="int" name="altezza"/>
+          <Argument type="Gioco" name="main"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="disegna" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setLarghezza" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="setAltezza" returnType="void" visibility="public">
+          <Argument type="int" name="valore"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="getLarghezza" returnType="int" visibility="public"/>
+        <Method name="getAltezza" returnType="int" visibility="public"/>
+        <Method name="spostaDestra" returnType="void" visibility="public"/>
+        <Method name="spostaSinistra" returnType="void" visibility="public"/>
+        <Method name="getBordi" returnType="Rectangle" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Gioco" package="gioco" visibility="public" xPosition="814.0" yPosition="384.0">
+      <Fields>
+        <Field name="larghezza" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="altezza" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="nome_gioco" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="finestra_gioco" type="JFrame" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="State" type="STATE" visibility="public" isStatic="true"/>
+        <Field name="giocoAttivo" type="boolean" visibility="private"/>
+        <Field name="ogg_criccetto" type="Criccetto" visibility="private"/>
+        <Field name="giocatore" type="Giocatore" visibility="private"/>
+        <Field name="pioggia" type="Pioggia" visibility="private"/>
+        <Field name="gioco" type="Gioco" visibility="public" isStatic="true"/>
+        <Field name="thread_gioco" type="Thread" visibility="public" isStatic="true"/>
+        <Field name="sfondo" type="BufferedImage" visibility="package"/>
+        <Field name="sfondomain" type="BufferedImage" visibility="package"/>
+        <Field name="sfondoend" type="BufferedImage" visibility="package"/>
+        <Field name="goccia" type="BufferedImage" visibility="package"/>
+        <Field name="ombrello" type="BufferedImage" visibility="package"/>
+        <Field name="criccetto" type="BufferedImage" visibility="package"/>
+        <Field name="Tempo1" type="long" visibility="package"/>
+        <Field name="Tempo2" type="long" visibility="package"/>
+        <Field name="Tempo" type="long" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="caricaRisorse" returnType="void" visibility="private"/>
+        <Method name="inizioGioco" returnType="void" visibility="private"/>
+        <Method name="disegna" returnType="void" visibility="private"/>
+        <Method name="aggiorna" returnType="void" visibility="private"/>
+        <Method name="controllaSconfitta" returnType="boolean" visibility="private"/>
+        <Method name="getAltezza" returnType="int" visibility="public"/>
+        <Method name="getLarghezza" returnType="int" visibility="public"/>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="mouseMoved" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="actionPerformed" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="e"/>
+        </Method>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="mouseDragged" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Goccia" package="gioco" visibility="public" xPosition="1176.0" yPosition="146.0">
+      <Fields>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+        <Field name="larghezza" type="int" visibility="private"/>
+        <Field name="altezza" type="int" visibility="private"/>
+        <Field name="velocita" type="int" visibility="private"/>
+        <Field name="attivo" type="boolean" visibility="private"/>
+        <Field name="main" type="Gioco" visibility="private"/>
+        <Field name="img_goccia" type="BufferedImage" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferedImage" name="image"/>
+          <Argument type="int" name="larghezza"/>
+          <Argument type="int" name="altezza"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="velocita"/>
+          <Argument type="Gioco" name="main"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="aggiorna" returnType="void" visibility="private"/>
+        <Method name="disegna" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="getLarghezza" returnType="int" visibility="public"/>
+        <Method name="getAltezza" returnType="int" visibility="public"/>
+        <Method name="getBordi" returnType="Rectangle" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pioggia" package="gioco" visibility="public" xPosition="1239.0" yPosition="634.0">
+      <Fields>
+        <Field name="numero" type="int" visibility="private"/>
+        <Field name="attesa" type="int" visibility="private"/>
+        <Field name="piove" type="boolean" visibility="private"/>
+        <Field name="img_goccia" type="BufferedImage" visibility="package"/>
+        <Field name="maxVel" type="int" visibility="private" isFinal="true"/>
+        <Field name="main" type="Gioco" visibility="package"/>
+        <Field name="rand" type="Random" visibility="package"/>
+        <Field name="gocce" type="ArrayList&lt;Goccia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BufferedImage" name="image"/>
+          <Argument type="int" name="numero"/>
+          <Argument type="int" name="attesa"/>
+          <Argument type="Gioco" name="main"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="disegna" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="getGocce" returnType="ArrayList" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="gioco" source="gioco.Gioco" target="gioco.Gioco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ogg_criccetto" source="gioco.Gioco" target="gioco.Criccetto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="main" source="gioco.Goccia" target="gioco.Gioco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="giocatore" source="gioco.Gioco" target="gioco.Giocatore" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="main" source="gioco.Giocatore" target="gioco.Gioco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gocce" source="gioco.Pioggia" target="gioco.Goccia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Goccia&gt;"/>
+    <HasRelation name="pioggia" source="gioco.Gioco" target="gioco.Pioggia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="gioco.GestoreCollisioni" target="gioco.Goccia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="main" source="gioco.Pioggia" target="gioco.Gioco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="main" source="gioco.Criccetto" target="gioco.Gioco" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
